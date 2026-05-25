@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polyrics Labs · Paleta de Color</title>
+  <style>
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pd-ElmsSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pf-ElmsSans-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ng-ElmsSans-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18no-ElmsSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p4-ElmsSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18np-ElmsSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p3-ElmsSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p8-ElmsSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p9-ElmsSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mx-ElmsSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mz-ElmsSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n4-ElmsSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mi-ElmsSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ml-ElmsSans-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+    :root {
+      --bg: #fcfafa;
+      --surface: #ffffff;
+      --surface-warm: #f9f5f7;
+      --fg: #1b1520;
+      --fg-2: #3d3045;
+      --muted: #6e5e76;
+      --meta: #9b8ca3;
+      --border: #e8dfe5;
+      --border-soft: #f3ecf1;
+      --accent: #38355b;
+      --accent-on: #ffffff;
+      --accent-2: #6c4676;
+      --accent-3: #b55c96;
+      --accent-4: #ff87b7;
+      --accent-5: #ffc2d7;
+      --accent-soft: color-mix(in oklch, var(--accent-5) 35%, transparent);
+      --accent-hover: color-mix(in oklab, var(--accent), white 16%);
+      --accent-active: color-mix(in oklab, var(--accent), white 24%);
+      --success: #0a8a40;
+      --warn: #c07a08;
+      --danger: #d43030;
+      --font-display: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-body: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-base: 16px;
+      --text-lg: 20px;
+      --text-xl: 24px;
+      --text-2xl: 32px;
+      --text-3xl: 48px;
+      --text-4xl: 64px;
+      --leading-body: 1.55;
+      --leading-tight: 1.1;
+      --tracking-display: -0.02em;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-20: 80px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --elev-flat: none;
+      --elev-ring: 0 0 0 1px var(--border);
+      --elev-raised: 0 2px 12px rgba(56,53,91,0.07);
+      --focus-ring: 0 0 0 3px color-mix(in oklab, var(--accent), transparent 60%);
+      --motion-fast: 150ms;
+      --motion-base: 200ms;
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --container-max: 1200px;
+      --container-gutter-desktop: 24px;
+      --container-gutter-tablet: 16px;
+      --container-gutter-phone: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); font-size: var(--text-base);
+      line-height: var(--leading-body); -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    h1, h2, h3 { text-wrap: balance; margin: 0; }
+    p { text-wrap: pretty; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--container-gutter-desktop);
+    }
+
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-block: 12px;
+    }
+    .topnav .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .topnav .nav-logo { width: 24px; height: 24px; }
+    .topnav .nav-name {
+      font-family: var(--font-display); font-size: 17px;
+      font-weight: 600; letter-spacing: -0.01em;
+    }
+    .topnav nav { display: flex; gap: var(--space-8); }
+    .topnav nav a {
+      font-size: 14px; color: var(--muted);
+      transition: color var(--motion-fast) var(--ease-standard);
+    }
+    .topnav nav a:hover, .topnav nav a.active { color: var(--accent); }
+    .topnav .back-link { font-family: var(--font-mono); font-size: 12px; color: var(--meta); }
+
+    .section { padding-block: var(--space-20); }
+
+    .section-header { margin-bottom: var(--space-12); }
+    .section-header .eyebrow {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);
+    }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      letter-spacing: -0.015em;
+    }
+    .section-header p {
+      color: var(--muted); margin-top: var(--space-2); max-width: 56ch;
+    }
+
+    .rule { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 768px) { .swatch-grid { grid-template-columns: 1fr; } }
+
+    .swatch {
+      display: flex; gap: var(--space-5);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      transition: box-shadow var(--motion-base) var(--ease-standard);
+    }
+    .swatch:hover {
+      box-shadow: var(--elev-raised);
+    }
+    .swatch-preview {
+      width: 80px; height: 80px; flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .swatch-info { flex: 1; min-width: 0; }
+    .swatch-info .token-name {
+      font-family: var(--font-mono); font-size: var(--text-sm);
+      font-weight: 600; color: var(--fg);
+    }
+    .swatch-info .hex-value {
+      font-family: var(--font-mono); font-size: 13px;
+      color: var(--muted); margin-top: 2px;
+    }
+    .swatch-info .role {
+      font-size: var(--text-sm); color: var(--meta);
+      margin-top: var(--space-2); line-height: 1.4;
+    }
+    .swatch-info .contrast {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: var(--space-2); font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.04em;
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .contrast-high { background: color-mix(in oklab, var(--success), transparent 88%); color: var(--success); }
+    .contrast-mid  { background: color-mix(in oklab, var(--warn), transparent 88%); color: var(--warn); }
+    .contrast-low  { background: color-mix(in oklab, var(--danger), transparent 88%); color: var(--danger); }
+
+    .surface-stack {
+      display: flex; gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .surface-level {
+      flex: 1; padding: var(--space-8);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .surface-level .level-tag {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.04em; margin-bottom: var(--space-2);
+    }
+
+    .accent-ramp {
+      display: flex; gap: var(--space-3);
+      margin-top: var(--space-8);
+    }
+    .accent-step {
+      flex: 1; text-align: center;
+    }
+    .accent-step .accent-swatch {
+      height: 100px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      margin-bottom: var(--space-2);
+      transition: transform var(--motion-base) var(--ease-standard);
+    }
+    .accent-step:hover .accent-swatch {
+      transform: scale(1.04);
+    }
+    .accent-step .step-name {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--fg); font-weight: 600;
+    }
+    .accent-step .step-hex {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--meta); margin-top: 2px;
+    }
+
+    .pagefoot {
+      padding-block: var(--space-12); border-top: 1px solid var(--border);
+      color: var(--meta); font-size: var(--text-sm); text-align: center;
+    }
+
+    /* background particles */
+    #particles-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    main, .topnav, .pagefoot { position: relative; z-index: 1; }
+    .topnav { z-index: 10; }
+  </style>
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <header class="topnav">
+    <div class="container topnav-inner">
+      <a class="nav-brand" href="index.html">
+        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-logo">
+          <polygon points="128,28 215,78 215,178 128,228 41,178 41,78" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <polygon points="128,52 195,92 195,164 128,204 61,164 61,92" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-dasharray="4 6"/>
+          <line x1="128" y1="28" x2="128" y2="228" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+          <line x1="41" y1="128" x2="215" y2="128" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+          <line x1="51" y1="73" x2="205" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+          <line x1="205" y1="73" x2="51" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+          <polygon points="128,78 178,128 128,178 78,128" fill="currentColor" opacity="0.20"/>
+          <polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.15" transform="rotate(60 128 128)"/>
+          <polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.12" transform="rotate(-60 128 128)"/>
+          <circle cx="128" cy="128" r="7" fill="currentColor"/>
+          <circle cx="128" cy="28" r="4" fill="currentColor"/>
+          <circle cx="215" cy="78" r="4" fill="currentColor"/>
+          <circle cx="215" cy="178" r="4" fill="currentColor"/>
+          <circle cx="128" cy="228" r="4" fill="currentColor"/>
+          <circle cx="41" cy="178" r="4" fill="currentColor"/>
+          <circle cx="41" cy="78" r="4" fill="currentColor"/>
+        </svg>
+        <span class="nav-name">Polyrics Labs</span>
+      </a>
+      <nav>
+        <a class="active" href="colors.html">Colores</a>
+        <a href="typography.html">Tipografia</a>
+        <a href="components.html">Componentes</a>
+      </nav>
+      <a class="back-link" href="index.html">&larr; Index</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="surfaces">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Superficie</p>
+          <h2>Canvas editorial blanco</h2>
+          <p>Tres niveles de elevaci&oacute;n &mdash; del papel blanco hielo al panel terciario. El acento plum profundo resalta las acciones clave.</p>
+        </div>
+
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--bg);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--bg</span>
+              <div class="hex-value">#fcfafa</div>
+              <div class="role">Fondo de p&aacute;gina &mdash; blanco hielo editorial. Canvas limpio que maximiza la legibilidad y genera amplitud.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--surface);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--surface</span>
+              <div class="hex-value">#FFFFFF</div>
+              <div class="role">Superficie elevada &mdash; cards, modales, paneles. Blanco puro para m&aacute;ximo contraste.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--surface-warm);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--surface-warm</span>
+              <div class="hex-value">#f9f5f7</div>
+              <div class="role">Superficie terciaria &mdash; sidebars, drawers, estados hover. Rosa gris&aacute;ceo sutil que acompa&ntilde;a la paleta berry.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="surface-stack">
+          <div class="surface-level" style="background: var(--bg);">
+            <div class="level-tag" style="color: var(--meta);">bg</div>
+            <div style="font-size: var(--text-sm); color: var(--muted);">#fcfafa</div>
+          </div>
+          <div class="surface-level" style="background: var(--surface); border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent), transparent 70%);">
+            <div class="level-tag" style="color: var(--accent);">surface</div>
+            <div style="font-size: var(--text-sm); color: var(--muted);">#FFFFFF</div>
+          </div>
+          <div class="surface-level" style="background: var(--surface-warm);">
+            <div class="level-tag" style="color: var(--meta);">surface-warm</div>
+            <div style="font-size: var(--text-sm); color: var(--muted);">#f9f5f7</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="foreground">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Texto</p>
+          <h2>Rampa de lectura</h2>
+          <p>Cuatro niveles de jerarqu&iacute;a textual. Tinta near-black para lectura primaria, grises progresivos para informaci&oacute;n secundaria.</p>
+        </div>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--fg);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--fg</span>
+              <div class="hex-value">#1b1520</div>
+              <div class="role">Texto primario. Negro viol&aacute;ceo profundo &mdash; m&aacute;xima legibilidad sobre fondo blanco hielo.</div>
+              <span class="contrast contrast-high">AAA &middot; 17.3:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--fg-2);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--fg-2</span>
+              <div class="hex-value">#3d3045</div>
+              <div class="role">Texto secundario. Subt&iacute;tulos, descripciones, labels de campos.</div>
+              <span class="contrast contrast-high">AAA &middot; 9.8:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--muted);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--muted</span>
+              <div class="hex-value">#6e5e76</div>
+              <div class="role">Texto muted. Captions, placeholders, ayuda contextual.</div>
+              <span class="contrast contrast-mid">AA &middot; 7.3:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--meta);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--meta</span>
+              <div class="hex-value">#9b8ca3</div>
+              <div class="role">Metadata. Timestamps, legal, cr&eacute;ditos, informaci&oacute;n de baja prioridad.</div>
+              <span class="contrast contrast-high">AAA &middot; 9.5:1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="borders">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Bordes</p>
+          <h2>Separadores funcionales</h2>
+          <p>Dos niveles de separaci&oacute;n visual. El borde principal define cards y contenedores; el sutil separa elementos internos.</p>
+        </div>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--border);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--border</span>
+              <div class="hex-value">#e8dfe5</div>
+              <div class="role">Borde principal &mdash; cards, inputs, separadores de secci&oacute;n. Rosa gris&aacute;ceo sutil.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--border-soft);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--border-soft</span>
+              <div class="hex-value">#f3ecf1</div>
+              <div class="role">Borde sutil &mdash; filas, separadores internos de card, l&iacute;neas divisorias de baja jerarqu&iacute;a.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="accent">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Acento</p>
+          <h2>Rampa berry &mdash; del plum al blush</h2>
+          <p>Cinco pasos del acento principal al tono m&aacute;s suave. El acento primario (#38355B) como direcci&oacute;n visual &uacute;nica. Los pasos 2&ndash;5 habilitan capas de profundidad sin a&ntilde;adir nuevos colores al sistema.</p>
+        </div>
+
+        <div class="accent-ramp">
+          <div class="accent-step">
+            <div class="accent-swatch" style="background: #38355b;"></div>
+            <div class="step-name">--accent</div>
+            <div class="step-hex">#38355B</div>
+            <div style="font-size:11px;color:var(--meta);margin-top:4px;">Plum profundo</div>
+          </div>
+          <div class="accent-step">
+            <div class="accent-swatch" style="background: #6c4676;"></div>
+            <div class="step-name">--accent-2</div>
+            <div class="step-hex">#6C4676</div>
+            <div style="font-size:11px;color:var(--meta);margin-top:4px;">Mora</div>
+          </div>
+          <div class="accent-step">
+            <div class="accent-swatch" style="background: #b55c96;"></div>
+            <div class="step-name">--accent-3</div>
+            <div class="step-hex">#B55C96</div>
+            <div style="font-size:11px;color:var(--meta);margin-top:4px;">Magenta medio</div>
+          </div>
+          <div class="accent-step">
+            <div class="accent-swatch" style="background: #ff87b7;"></div>
+            <div class="step-name">--accent-4</div>
+            <div class="step-hex">#FF87B7</div>
+            <div style="font-size:11px;color:var(--meta);margin-top:4px;">Rosa vibrante</div>
+          </div>
+          <div class="accent-step">
+            <div class="accent-swatch" style="background: #ffc2d7;"></div>
+            <div class="step-name">--accent-5</div>
+            <div class="step-hex">#FFC2D7</div>
+            <div style="font-size:11px;color:var(--meta);margin-top:4px;">Blush claro</div>
+          </div>
+        </div>
+
+        <div class="swatch-grid" style="margin-top: var(--space-8);">
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent</span>
+              <div class="hex-value">#38355b</div>
+              <div class="role">Acento primario. CTAs, links, un elemento hero por pantalla. Sobre fondo blanco hielo, ratio 6.9:1 (AA).</div>
+              <span class="contrast contrast-high">AA &middot; 6.9:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-hover);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-hover</span>
+              <div class="hex-value">mix(accent, white 16%)</div>
+              <div class="role">Estado hover de elementos con --accent como fondo. Derivado con color-mix().</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-soft);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-soft</span>
+              <div class="hex-value">mix(accent-5, transparent)</div>
+              <div class="role">Fondo sutil para badges, tags, y resaltados contextuales. Usa --accent-5 como base.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-2);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-2</span>
+              <div class="hex-value">#6c4676</div>
+              <div class="role">Acento secundario. Bordes de estado, &iacute;conos decorativos, segundo nivel de jerarqu&iacute;a visual.</div>
+              <span class="contrast contrast-high">AA &middot; 5.8:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-3);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-3</span>
+              <div class="hex-value">#b55c96</div>
+              <div class="role">Acento terciario. Badges, tags, fondos de indicadores. Sobre blanco, ratio 3.6:1 (solo para &aacute;reas grandes).</div>
+              <span class="contrast contrast-mid">AA &middot; 3.6:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-4);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-4</span>
+              <div class="hex-value">#ff87b7</div>
+              <div class="role">Acento decorativo. Iluminaciones, hover de &iacute;conos, elementos de fondos animados. Solo con fines decorativos.</div>
+              <span class="contrast contrast-low">Fails &middot; 2.1:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--accent-5);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--accent-5</span>
+              <div class="hex-value">#ffc2d7</div>
+              <div class="role">Fondo decorativo. Cards sutiles, paneles de acento, fondos de gradiente. Solo como background.</div>
+              <span class="contrast contrast-low">Fails &middot; 1.4:1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="semantic">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Sem&aacute;nticos</p>
+          <h2>Estados del sistema</h2>
+          <p>Reservados para estado, no decoraci&oacute;n. El &aacute;rea total de color sem&aacute;ntico debe ocupar menos del 5% de la superficie.</p>
+        </div>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--success);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--success</span>
+              <div class="hex-value">#0a8a40</div>
+              <div class="role">Confirmaci&oacute;n, completado, operaci&oacute;n exitosa.</div>
+              <span class="contrast contrast-mid">AA &middot; 4.6:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--warn);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--warn</span>
+              <div class="hex-value">#c07a08</div>
+              <div class="role">Atenci&oacute;n, pendiente, advertencia no bloqueante.</div>
+              <span class="contrast contrast-mid">AA &middot; 4.5:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-preview" style="background: var(--danger);"></div>
+            <div class="swatch-info">
+              <span class="token-name">--danger</span>
+              <div class="hex-value">#d43030</div>
+              <div class="role">Error, acci&oacute;n destructiva, estado cr&iacute;tico.</div>
+              <span class="contrast contrast-mid">AA &middot; 4.8:1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot">
+    <div class="container">
+      <p>Polyrics Labs &middot; Design System v1.0</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let w, h, particles = [];
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const colors = ['#38355b', '#6c4676', '#b55c96', '#ff87b7', '#ffc2d7'];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * w;
+          this.y = Math.random() * h;
+          this.r = 1.5 + Math.random() * 3.5;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.phase = Math.random() * Math.PI * 2;
+          this.freq = 0.2 + Math.random() * 0.3;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0) this.x += w;
+          if (this.x > w) this.x -= w;
+          if (this.y < 0) this.y += h;
+          if (this.y > h) this.y -= h;
+          const pulse = 0.5 + 0.5 * Math.sin(Date.now() * 0.001 * this.freq + this.phase);
+          this.currentR = this.r * (0.6 + 0.4 * pulse);
+          this.opacity = 0.15 + 0.35 * pulse;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.currentR, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = this.opacity;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      function init(count) {
+        particles = [];
+        for (let i = 0; i < count; i++) particles.push(new Particle());
+      }
+
+      let mouseX = -9999, mouseY = -9999;
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      document.addEventListener('mouseleave', function() {
+        mouseX = -9999; mouseY = -9999;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        for (let p of particles) {
+          const dx = p.x - mouseX;
+          const dy = p.y - mouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 180) {
+            const force = (180 - dist) / 180;
+            p.x += (dx / dist) * force * 1.2;
+            p.y += (dy / dist) * force * 1.2;
+          }
+          p.update();
+          p.draw();
+        }
+        // connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = '#38355b';
+              ctx.globalAlpha = (1 - dist / 120) * 0.08;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+              ctx.globalAlpha = 1;
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init(60);
+      animate();
+    })();
+  </script>
+</body>
+</html>

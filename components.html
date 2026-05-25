@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polyrics Labs · Componentes</title>
+  <style>
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pd-ElmsSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pf-ElmsSans-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ng-ElmsSans-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18no-ElmsSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p4-ElmsSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18np-ElmsSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p3-ElmsSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p8-ElmsSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p9-ElmsSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mx-ElmsSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mz-ElmsSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n4-ElmsSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mi-ElmsSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ml-ElmsSans-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+    :root {
+      --bg: #fcfafa;
+      --surface: #ffffff;
+      --surface-warm: #f9f5f7;
+      --fg: #1b1520;
+      --fg-2: #3d3045;
+      --muted: #6e5e76;
+      --meta: #9b8ca3;
+      --border: #e8dfe5;
+      --border-soft: #f3ecf1;
+      --accent: #38355b;
+      --accent-on: #ffffff;
+      --accent-2: #6c4676;
+      --accent-3: #b55c96;
+      --accent-4: #ff87b7;
+      --accent-5: #ffc2d7;
+      --accent-soft: color-mix(in oklch, var(--accent-5) 35%, transparent);
+      --accent-hover: color-mix(in oklab, var(--accent), white 16%);
+      --accent-active: color-mix(in oklab, var(--accent), white 24%);
+      --success: #0a8a40;
+      --warn: #c07a08;
+      --danger: #d43030;
+      --font-display: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-body: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-base: 16px;
+      --text-lg: 20px;
+      --text-xl: 24px;
+      --text-2xl: 32px;
+      --text-3xl: 48px;
+      --text-4xl: 64px;
+      --leading-body: 1.55;
+      --leading-tight: 1.1;
+      --tracking-display: -0.02em;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-20: 80px;
+      --section-y-desktop: 80px;
+      --section-y-tablet: 48px;
+      --section-y-phone: 32px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --elev-flat: none;
+      --elev-ring: 0 0 0 1px var(--border);
+      --elev-raised: 0 2px 12px rgba(56,53,91,0.07);
+      --focus-ring: 0 0 0 3px color-mix(in oklab, var(--accent), transparent 60%);
+      --motion-fast: 150ms;
+      --motion-base: 200ms;
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --container-max: 1200px;
+      --container-gutter-desktop: 24px;
+      --container-gutter-tablet: 16px;
+      --container-gutter-phone: 12px;
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); font-size: var(--text-base);
+      line-height: var(--leading-body); -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { text-wrap: balance; margin: 0; }
+    p { text-wrap: pretty; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--container-gutter-desktop);
+    }
+
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-block: 12px;
+    }
+    .topnav .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .topnav .nav-logo { width: 24px; height: 24px; }
+    .topnav .nav-name {
+      font-family: var(--font-display); font-size: 17px;
+      font-weight: 600; letter-spacing: -0.01em;
+    }
+    .topnav nav { display: flex; gap: var(--space-8); }
+    .topnav nav a {
+      font-size: 14px; color: var(--muted);
+      transition: color var(--motion-fast) var(--ease-standard);
+    }
+    .topnav nav a:hover, .topnav nav a.active { color: var(--accent); }
+    .topnav .back-link { font-family: var(--font-mono); font-size: 12px; color: var(--meta); }
+
+    .section { padding-block: var(--space-20); }
+    .rule { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+    .section-header { margin-bottom: var(--space-12); }
+    .section-header .eyebrow {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);
+    }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      letter-spacing: -0.015em;
+    }
+    .section-header p { color: var(--muted); margin-top: var(--space-2); max-width: 56ch; }
+
+    .comp-group { margin-bottom: var(--space-12); }
+    .comp-group h3 {
+      font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: var(--space-5); padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .comp-grid {
+      display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    .comp-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+      color: var(--meta); margin-right: var(--space-6); min-width: 80px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      font-family: var(--font-body); font-size: 14px; font-weight: 500;
+      letter-spacing: -0.005em;
+      cursor: pointer;
+      transition: background var(--motion-fast) var(--ease-standard),
+                  border-color var(--motion-fast) var(--ease-standard),
+                  transform 0.05s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus-visible { box-shadow: var(--focus-ring); outline: none; }
+    .btn-primary { background: var(--accent); color: var(--accent-on); border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--fg-2); background: var(--surface-warm); }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 8px; }
+    .btn-ghost:hover { color: var(--accent); background: color-mix(in oklab, var(--accent), transparent 94%); }
+    .btn-danger { background: transparent; color: var(--danger); border-color: var(--danger); }
+    .btn-danger:hover { background: color-mix(in oklab, var(--danger), transparent 90%); }
+    .btn-sm { padding: 6px 12px; font-size: 13px; }
+    .btn-lg { padding: 14px 24px; font-size: 16px; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; max-width: 360px; }
+    .field-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+    .field-help { font-size: 12px; color: var(--meta); }
+    .input, .textarea, .select {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      background: var(--surface); color: var(--fg);
+      font-family: var(--font-body); font-size: 14px;
+      transition: border-color var(--motion-fast) var(--ease-standard);
+    }
+    .input::placeholder, .textarea::placeholder { color: var(--meta); }
+    .input:focus, .textarea:focus, .select:focus {
+      border-color: var(--accent); box-shadow: var(--focus-ring); outline: none;
+    }
+    .textarea { min-height: 96px; resize: vertical; line-height: var(--leading-body); }
+    .select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+
+    .toggle-row { display: flex; align-items: center; gap: var(--space-3); }
+    .toggle {
+      appearance: none; width: 40px; height: 22px;
+      background: var(--border); border-radius: var(--radius-pill);
+      cursor: pointer; position: relative;
+      transition: background var(--motion-fast) var(--ease-standard);
+    }
+    .toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; background: var(--surface);
+      border-radius: 50%; transition: transform var(--motion-fast) var(--ease-standard);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    }
+    .toggle:checked { background: var(--accent); }
+    .toggle:checked::after { transform: translateX(18px); background: var(--accent-on); }
+    .toggle:focus-visible { box-shadow: var(--focus-ring); outline: none; }
+
+    .checkbox-row { display: flex; align-items: center; gap: var(--space-2); }
+    .checkbox {
+      appearance: none; width: 18px; height: 18px;
+      border: 1px solid var(--border); border-radius: 4px;
+      background: var(--surface); cursor: pointer;
+      display: grid; place-items: center;
+      transition: background var(--motion-fast) var(--ease-standard),
+                  border-color var(--motion-fast) var(--ease-standard);
+    }
+    .checkbox:checked { background: var(--accent); border-color: var(--accent); }
+    .checkbox:checked::after {
+      content: ''; width: 6px; height: 10px;
+      border: solid var(--accent-on); border-width: 0 2px 2px 0;
+      transform: rotate(45deg); margin-top: -1px;
+    }
+    .checkbox:focus-visible { box-shadow: var(--focus-ring); outline: none; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: var(--space-6);
+      transition: border-color var(--motion-fast) var(--ease-standard),
+                  box-shadow var(--motion-fast) var(--ease-standard);
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-elevated { box-shadow: var(--elev-raised); border-color: transparent; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: var(--radius-pill);
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.04em; font-weight: 500;
+    }
+    .badge-success { background: color-mix(in oklab, var(--success), transparent 85%); color: var(--success); }
+    .badge-warn { background: color-mix(in oklab, var(--warn), transparent 85%); color: var(--warn); }
+    .badge-danger { background: color-mix(in oklab, var(--danger), transparent 85%); color: var(--danger); }
+    .badge-muted { background: color-mix(in oklab, var(--muted), transparent 85%); color: var(--muted); }
+    .badge-accent { background: color-mix(in oklab, var(--accent), transparent 85%); color: var(--accent); }
+
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+    .ds-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .ds-table th, .ds-table td {
+      padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-soft);
+    }
+    .ds-table th {
+      color: var(--muted); font-weight: 500; font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .ds-table tbody tr:hover { background: var(--surface-warm); }
+    .ds-table .num-col { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+
+    .alert {
+      display: flex; align-items: flex-start; gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-sm); font-size: 14px;
+      border: 1px solid;
+    }
+    .alert-success { background: color-mix(in oklab, var(--success), transparent 92%); color: var(--success); border-color: color-mix(in oklab, var(--success), transparent 75%); }
+    .alert-warn { background: color-mix(in oklab, var(--warn), transparent 92%); color: var(--warn); border-color: color-mix(in oklab, var(--warn), transparent 75%); }
+    .alert-danger { background: color-mix(in oklab, var(--danger), transparent 92%); color: var(--danger); border-color: color-mix(in oklab, var(--danger), transparent 75%); }
+    .alert-info { background: color-mix(in oklab, var(--accent), transparent 92%); color: var(--accent); border-color: color-mix(in oklab, var(--accent), transparent 75%); }
+
+    .code-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .code-block-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-2) var(--space-4);
+      background: var(--surface-warm); border-bottom: 1px solid var(--border-soft);
+    }
+    .code-block-header span {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.04em; color: var(--meta);
+    }
+    .code-block pre {
+      font-family: var(--font-mono); font-size: 13px;
+      line-height: 1.65; color: var(--fg-2);
+      margin: 0; padding: var(--space-4);
+      overflow-x: auto; white-space: pre;
+    }
+    .code-block pre .kw { color: var(--accent); }
+    .code-block pre .str { color: var(--success); }
+    .code-block pre .cmt { color: var(--meta); }
+
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: var(--space-6); }
+    .tab {
+      padding: var(--space-2) var(--space-4);
+      font-size: 14px; color: var(--muted); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color var(--motion-fast) var(--ease-standard),
+                  border-color var(--motion-fast) var(--ease-standard);
+      background: none; border-top: none; border-left: none; border-right: none;
+      font-family: var(--font-body);
+    }
+    .tab:hover { color: var(--fg); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .tooltip-wrap { position: relative; display: inline-flex; }
+    .tooltip {
+      position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+      background: var(--fg); color: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px; font-size: 12px; white-space: nowrap;
+      pointer-events: none; opacity: 0;
+      transition: opacity var(--motion-fast) var(--ease-standard);
+    }
+    .tooltip-wrap:hover .tooltip { opacity: 1; }
+
+    .progress-track {
+      height: 6px; background: var(--border); border-radius: var(--radius-pill);
+      overflow: hidden; width: 100%;
+    }
+    .progress-fill {
+      height: 100%; background: var(--accent); border-radius: var(--radius-pill);
+      transition: width var(--motion-base) var(--ease-standard);
+    }
+
+    .avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: color-mix(in oklab, var(--accent), transparent 82%);
+      display: grid; place-items: center;
+      font-family: var(--font-mono); font-size: 13px; color: var(--accent);
+      font-weight: 600;
+    }
+    .avatar-sm { width: 28px; height: 28px; font-size: 11px; }
+    .avatar-lg { width: 48px; height: 48px; font-size: 16px; }
+
+    .pagefoot {
+      padding-block: var(--space-12); border-top: 1px solid var(--border);
+      color: var(--meta); font-size: var(--text-sm); text-align: center;
+    }
+  
+    /* ─── Brutalist variants ─────────────────────────────────────────── */
+    .btn-brutal {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      border: 2px solid var(--fg);
+      border-radius: 0;
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-display); font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+    }
+    .btn-brutal:hover { background: var(--fg); color: var(--bg); }
+    .btn-brutal-accent { border-color: var(--accent); color: var(--accent); }
+    .btn-brutal-accent:hover { background: var(--accent); color: var(--accent-on); }
+
+    .field-brutal { display: block; margin-bottom: var(--space-6); }
+    .field-brutal-label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg); margin-bottom: var(--space-1); }
+    .input-brutal { width: 100%; padding: 12px 16px; border: 2px solid var(--fg); border-radius: 0; background: transparent; font-family: var(--font-body); font-size: 15px; color: var(--fg); outline: none; transition: border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard); }
+    .input-brutal:focus { border-color: var(--accent-3); background: color-mix(in oklch, var(--accent-5) 15%, transparent); }
+    .input-brutal::placeholder { color: var(--meta); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; }
+
+    .card-brutal { background: var(--surface); border: 2px solid var(--border); border-radius: 0; padding: var(--space-8); transition: border-color var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard); }
+    .card-brutal:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px color-mix(in oklab, var(--accent), transparent 88%); }
+
+    .glitch-demo { font-family: var(--font-display); font-size: 48px; font-weight: 900; line-height: 1; position: relative; display: inline-block; }
+    .glitch-demo::before, .glitch-demo::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.6; }
+    .glitch-demo::before { color: var(--accent-3); z-index: -1; animation: glitch-d1 3s infinite linear alternate-reverse; }
+    .glitch-demo::after { color: var(--accent-4); z-index: -2; animation: glitch-d2 2.7s 0.4s infinite linear alternate-reverse; }
+    @keyframes glitch-d1 { 0% { clip-path: inset(20% 0 60% 0); transform: translate(-3px,-2px); } 20% { clip-path: inset(60% 0 20% 0); transform: translate(2px,3px); } 40% { clip-path: inset(30% 0 40% 0); transform: translate(-1px,-1px); } 60% { clip-path: inset(50% 0 10% 0); transform: translate(4px,1px); } 80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px,2px); } 100% { clip-path: inset(40% 0 30% 0); transform: translate(0,0); } }
+    @keyframes glitch-d2 { 0% { clip-path: inset(40% 0 30% 0); transform: translate(2px,-1px); } 20% { clip-path: inset(10% 0 70% 0); transform: translate(-3px,2px); } 40% { clip-path: inset(70% 0 10% 0); transform: translate(1px,1px); } 60% { clip-path: inset(30% 0 50% 0); transform: translate(-2px,-2px); } 80% { clip-path: inset(50% 0 20% 0); transform: translate(3px,-1px); } 100% { clip-path: inset(20% 0 60% 0); transform: translate(0,0); } }
+
+    .proj-brutal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 2px solid var(--fg); border-bottom: 0; }
+    @media (max-width: 860px) { .proj-brutal-grid { grid-template-columns: 1fr; border-right: 2px solid var(--fg); } }
+    .proj-brutal { padding: var(--space-6); border-right: 2px solid var(--fg); border-bottom: 2px solid var(--fg); }
+    .proj-brutal:nth-child(3n) { border-right: 0; }
+    @media (max-width: 860px) { .proj-brutal { border-right: 0; } }
+    .proj-brutal h4 { font-family: var(--font-display); font-size: 18px; font-weight: 800; margin-bottom: var(--space-2); }
+    .proj-brutal p { color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: var(--space-3); }
+    .proj-brutal .proj-brutal-eta { font-family: var(--font-mono); font-size: 10px; color: var(--accent-3); letter-spacing: 0.06em; }
+    .proj-brutal .proj-brutal-bar { margin-top: var(--space-3); height: 3px; background: var(--border-soft); }
+
+    .stat-brutal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+    @media (max-width: 640px) { .stat-brutal-grid { grid-template-columns: 1fr; } }
+    .stat-brutal { border: 2px solid var(--accent); padding: var(--space-5) var(--space-6); text-align: center; }
+    .stat-brutal .stat-brutal-num { font-family: var(--font-display); font-size: 40px; font-weight: 900; line-height: 1; color: var(--accent); }
+    .stat-brutal .stat-brutal-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: var(--space-1); }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav-inner">
+      <a class="nav-brand" href="index.html">
+          <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="128,28 215,78 215,178 128,228 41,178 41,78" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="128,52 195,92 195,164 128,204 61,164 61,92" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-dasharray="4 6"/>
+  <line x1="128" y1="28" x2="128" y2="228" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+  <line x1="41" y1="128" x2="215" y2="128" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+  <line x1="51" y1="73" x2="205" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+  <line x1="205" y1="73" x2="51" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+  <g transform="rotate(0, 128, 128)"><polygon points="128,78 178,128 128,178 78,128" fill="currentColor" opacity="0.20"/></g>
+  <g transform="rotate(60, 128, 128)"><polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.15"/></g>
+  <g transform="rotate(-60, 128, 128)"><polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.12"/></g>
+  <circle cx="128" cy="128" r="7" fill="currentColor"/>
+  <circle cx="128" cy="28" r="4" fill="currentColor"/>
+  <circle cx="215" cy="78" r="4" fill="currentColor"/>
+  <circle cx="215" cy="178" r="4" fill="currentColor"/>
+  <circle cx="128" cy="228" r="4" fill="currentColor"/>
+  <circle cx="41" cy="178" r="4" fill="currentColor"/>
+  <circle cx="41" cy="78" r="4" fill="currentColor"/>
+</svg>
+        <span class="nav-name">Polyrics Labs</span>
+      </a>
+      <nav>
+        <a href="colors.html">Colores</a>
+        <a href="typography.html">Tipografia</a>
+        <a class="active" href="components.html">Componentes</a>
+      </nav>
+      <a class="back-link" href="index.html">&larr; Index</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="buttons">
+      <div class="container">
+        <div class="section-header">
+            <p class="eyebrow">Componentes</p>
+            <h2>Botones</h2>
+            <p>Primario (indigo-purpura), secundario (borde), ghost (transparente), danger (rojo). Tres tamanos. Estados: default, hover, active, disabled, focus-visible.</p>
+        </div>
+
+        <div class="comp-group">
+          <h3>Variantes</h3>
+          <div class="comp-grid">
+            <span class="comp-label">Primary</span>
+            <button class="btn btn-primary">Primary action</button>
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+          <div class="comp-grid">
+            <span class="comp-label">Secondary</span>
+            <button class="btn btn-secondary">Secondary action</button>
+            <button class="btn btn-secondary btn-sm">Small</button>
+            <button class="btn btn-secondary btn-lg">Large</button>
+          </div>
+          <div class="comp-grid">
+            <span class="comp-label">Ghost</span>
+            <button class="btn btn-ghost">Ghost action</button>
+            <button class="btn btn-ghost btn-sm">Small</button>
+          </div>
+          <div class="comp-grid">
+            <span class="comp-label">Danger</span>
+            <button class="btn btn-danger">Delete project</button>
+            <button class="btn btn-danger btn-sm">Remove</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="inputs">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Formularios</p>
+          <h2>Inputs y controles</h2>
+        </div>
+
+        <div class="comp-group">
+          <h3>Campos de texto</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-6);">
+            <div class="field">
+              <label class="field-label" for="name">Nombre del proyecto</label>
+              <input class="input" id="name" type="text" placeholder="Ej: polyrics-core" />
+              <span class="field-help">Sin espacios ni caracteres especiales.</span>
+            </div>
+            <div class="field">
+              <label class="field-label" for="desc">Descripcion</label>
+              <textarea class="textarea" id="desc" placeholder="Describi el proposito del proyecto..."></textarea>
+            </div>
+            <div class="field">
+              <label class="field-label" for="license">Licencia</label>
+              <select class="select" id="license">
+                <option>GPL-3.0</option>
+                <option>MIT</option>
+                <option>AGPL-3.0</option>
+                <option>Apache 2.0</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Toggles &amp; Checkboxes</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: center;">
+            <div class="toggle-row">
+              <input class="toggle" type="checkbox" id="public" checked />
+              <label for="public" style="font-size: 14px;">Repositorio publico</label>
+            </div>
+            <div class="toggle-row">
+              <input class="toggle" type="checkbox" id="notify" />
+              <label for="notify" style="font-size: 14px;">Notificaciones</label>
+            </div>
+            <div class="checkbox-row">
+              <input class="checkbox" type="checkbox" id="agree" checked />
+              <label for="agree" style="font-size: 14px;">Acepto los terminos</label>
+            </div>
+            <div class="checkbox-row">
+              <input class="checkbox" type="checkbox" id="news" />
+              <label for="news" style="font-size: 14px;">Recibir newsletter</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="cards">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Superficies</p>
+          <h2>Cards</h2>
+          <p>Default (flat), elevated (sombra). Hover acentua el borde. El contenido interno usa padding de 24px.</p>
+        </div>
+
+        <div class="comp-group">
+          <h3>Default &amp; Elevated</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5);">
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                <div class="avatar" style="background: color-mix(in oklab, var(--success), transparent 82%); color: var(--success);">PL</div>
+                <div>
+                  <div style="font-weight: 600; font-size: 15px;">polyrics-core</div>
+                  <div style="font-family: var(--font-mono); font-size: 12px; color: var(--meta);">GPL-3.0 &middot; v1.0.0</div>
+                </div>
+              </div>
+              <p style="color: var(--muted); font-size: 14px; margin-bottom: var(--space-4);">Biblioteca central de utilidades compartidas entre todos los proyectos del laboratorio.</p>
+              <div style="display: flex; gap: var(--space-2);">
+                <span class="badge badge-accent">TypeScript</span>
+                <span class="badge badge-muted">Node 24</span>
+              </div>
+            </div>
+            <div class="card card-elevated">
+              <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                <div class="avatar">SD</div>
+                <div>
+                  <div style="font-weight: 600; font-size: 15px;">system-design</div>
+                  <div style="font-family: var(--font-mono); font-size: 12px; color: var(--meta);">MIT &middot; v0.2.1</div>
+                </div>
+              </div>
+              <p style="color: var(--muted); font-size: 14px;">Sistema de diseno unificado para todas las aplicaciones de Polyrics Labs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="badges">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Etiquetas</p>
+          <h2>Badges &amp; Chips</h2>
+          <p>Cinco variantes semanticas. Mono tipografia, radio pill, diseno compacto. Usar para estado, categorias y etiquetas de filtro.</p>
+        </div>
+
+        <div class="comp-group">
+          <div class="comp-grid" style="gap: var(--space-4);">
+            <span class="badge badge-success"><span class="badge-dot" style="background: var(--success);"></span>Active</span>
+            <span class="badge badge-warn"><span class="badge-dot" style="background: var(--warn);"></span>Pending</span>
+            <span class="badge badge-danger"><span class="badge-dot" style="background: var(--danger);"></span>Failed</span>
+            <span class="badge badge-muted">Archived</span>
+            <span class="badge badge-accent">New</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="tables">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Datos</p>
+          <h2>Tablas</h2>
+          <p>Bordes hairline, encabezados mono uppercase, hover sutil en filas. Numeros con tabular-nums para alineacion.</p>
+        </div>
+
+        <div class="comp-group">
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>Proyecto</th>
+                <th>Licencia</th>
+                <th class="num-col">Estrellas</th>
+                <th class="num-col">Issues</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 500;">polyrics-core</td>
+                <td style="font-family: var(--font-mono); font-size: 12px; color: var(--muted);">GPL-3.0</td>
+                <td class="num-col">1,284</td>
+                <td class="num-col" style="color: var(--success);">12</td>
+                <td><span class="badge badge-success"><span class="badge-dot" style="background: var(--success);"></span>Active</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight: 500;">open-design</td>
+                <td style="font-family: var(--font-mono); font-size: 12px; color: var(--muted);">AGPL-3.0</td>
+                <td class="num-col">847</td>
+                <td class="num-col" style="color: var(--warn);">34</td>
+                <td><span class="badge badge-warn"><span class="badge-dot" style="background: var(--warn);"></span>Beta</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight: 500;">craft-rules</td>
+                <td style="font-family: var(--font-mono); font-size: 12px; color: var(--muted);">MIT</td>
+                <td class="num-col">312</td>
+                <td class="num-col">5</td>
+                <td><span class="badge badge-muted">Stable</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="alerts">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Feedback</p>
+          <h2>Alertas</h2>
+          <p>Cuatro variantes: success, warning, danger, info. Fondo tintado sutil, borde del mismo tono, texto semantico.</p>
+        </div>
+
+        <div class="comp-group" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="alert alert-success">Build completado exitosamente. Todos los tests pasan.</div>
+          <div class="alert alert-warn">La licencia del repositorio no esta especificada. Agregala en package.json.</div>
+          <div class="alert alert-danger">El deploy fallo: credenciales de Cloudflare invalidas.</div>
+          <div class="alert alert-info">Nueva version disponible: polyrics-core@v1.1.0. Ejecuta pnpm update.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="code">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Codigo</p>
+          <h2>Bloques de codigo</h2>
+          <p>Superficie blanca, borde sutil, header con nombre de archivo. Mono JetBrains con resaltado semantico minimo.</p>
+        </div>
+
+        <div class="comp-group">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span>tokens.css</span>
+              <span style="color: var(--accent);">:root</span>
+            </div>
+            <pre><span class="cmt">/* Polyrics Labs Design System v1.0 */</span>
+<span class="kw">:root</span> {
+  <span class="kw">--bg</span>:      <span class="str">#fcfafa</span>;
+  <span class="kw">--fg</span>:      <span class="str">#1b1520</span>;
+  <span class="kw">--accent</span>:  <span class="str">#38355b</span>;
+  <span class="kw">--success</span>: <span class="str">#0a8a40</span>;
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="tabs-sec">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Navegacion</p>
+          <h2>Tabs</h2>
+          <p>Navegacion secundaria. Borde inferior como indicador activo. Transicion suave de color y borde.</p>
+        </div>
+
+        <div class="comp-group">
+          <div class="tabs">
+            <button class="tab active">Overview</button>
+            <button class="tab">Repositories</button>
+            <button class="tab">Packages</button>
+            <button class="tab">Settings</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="misc">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Utilidades</p>
+          <h2>Progreso, avatares, tooltips</h2>
+        </div>
+
+        <div class="comp-group">
+          <h3>Barra de progreso</h3>
+          <div style="max-width: 400px; margin-bottom: var(--space-6);">
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 67%;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: var(--space-1);">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent);">67%</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--meta);">2/3 tests</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Avatares</h3>
+          <div class="comp-grid" style="gap: var(--space-4);">
+            <div class="avatar avatar-lg">PL</div>
+            <div class="avatar">KB</div>
+            <div class="avatar avatar-sm">AR</div>
+            <span style="color: var(--meta); font-size: 13px; margin-left: var(--space-4);">Iniciales en mono, circulo tintado con el acento</span>
+          </div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Tooltip</h3>
+          <div class="comp-grid">
+            <div class="tooltip-wrap">
+              <span style="color: var(--accent); cursor: help; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px;">Open Core</span>
+              <div class="tooltip">Funcionalidad libre. Custom Features de pago.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" data-od-id="brutalist">
+      <div class="container">
+        <div class="section-header">
+            <p class="eyebrow">Brutalist-Editorial</p>
+            <h2>Variantes brutalistas</h2>
+            <p>Componentes para paginas publicas — landing, blog, productos. Bordes pesados (2px+), radio cero, glitch, scanlines, monospace metadata. Mismo contrato de tokens.</p>
+        </div>
+
+        <div class="comp-group">
+          <h3>Botones brutalistas</h3>
+          <div class="comp-grid" style="gap: var(--space-4);">
+            <span class="comp-label">Default</span>
+            <button class="btn-brutal">Colabora</button>
+            <button class="btn-brutal-accent">Escríbenos</button>
+            <button class="btn-brutal" disabled style="opacity:0.4;cursor:not-allowed">Disabled</button>
+          </div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Raw Form Fields</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-6);">
+            <div class="field-brutal" style="max-width: 320px;">
+              <label class="field-brutal-label">Nombre</label>
+              <input class="input-brutal" type="text" placeholder="Tu nombre o empresa" />
+            </div>
+            <div class="field-brutal" style="max-width: 320px;">
+              <label class="field-brutal-label">Correo electronico</label>
+              <input class="input-brutal" type="email" placeholder="tu@correo.com" />
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Glitch Text</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: var(--space-5);">Aberracion cromatica via clip-path + pseudo-elementos. Hover revela el glitch completo. Usar solo en headlines del hero.</p>
+          <div class="glitch-demo" data-text="Software libre">Software libre</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" data-od-id="brutalist-cards">
+      <div class="container">
+        <div class="section-header">
+            <p class="eyebrow">Brutalist Cards</p>
+            <h2>Cards &amp; Proyectos</h2>
+        </div>
+
+        <div class="comp-group">
+          <h3>Brutalist Card</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5);">
+            <div class="card-brutal">
+              <h4 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: var(--space-2);">Polynode</h4>
+              <p style="color: var(--muted); font-size: 14px;">CLI runtime para orquestacion de toolchains. Zero dependencias externas en runtime.</p>
+              <div style="display: flex; gap: var(--space-1); flex-wrap: wrap; margin-top: var(--space-4);">
+                <span class="badge badge-accent">CLI</span>
+                <span class="badge badge-muted">Rust</span>
+                <span class="badge badge-muted">v2.1.4</span>
+              </div>
+            </div>
+            <div class="card-brutal">
+              <h4 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: var(--space-2);">LabCore</h4>
+              <p style="color: var(--muted); font-size: 14px;">Suite de monitoreo y telemetria para sistemas distribuidos. Dashboard en tiempo real.</p>
+              <div style="display: flex; gap: var(--space-1); flex-wrap: wrap; margin-top: var(--space-4);">
+                <span class="badge badge-accent">Monitor</span>
+                <span class="badge badge-muted">Go</span>
+                <span class="badge badge-muted">v0.9 Beta</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-group" style="margin-top: var(--space-12);">
+          <h3>Proyectos (Grid con bordes compartidos)</h3>
+          <div class="proj-brutal-grid">
+            <div class="proj-brutal">
+              <h4>PolyCloud</h4>
+              <p>Plataforma de aplicaciones auto-hosted. Despliegue con un solo comando.</p>
+              <div class="proj-brutal-eta">ETA: Q3 2026</div>
+              <div class="proj-brutal-bar"><div class="proj-brutal-bar" style="width:75%;height:100%;background:var(--accent-4);"></div></div>
+            </div>
+            <div class="proj-brutal">
+              <h4>LabKit</h4>
+              <p>Kit de desarrollo para sistemas embebidos. Toolchain y simulador integrado.</p>
+              <div class="proj-brutal-eta">ETA: Q4 2026</div>
+              <div class="proj-brutal-bar"><div style="width:40%;height:100%;background:var(--accent-3);"></div></div>
+            </div>
+            <div class="proj-brutal">
+              <h4>CommonsDB</h4>
+              <p>Motor de base de datos con gobernanza comunitaria. Consenso distribuido.</p>
+              <div class="proj-brutal-eta">ETA: 2027</div>
+              <div class="proj-brutal-bar"><div style="width:10%;height:100%;background:var(--muted);"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-group" style="margin-top: var(--space-12);">
+          <h3>Stats (Borde pesado)</h3>
+          <div class="stat-brutal-grid">
+            <div class="stat-brutal">
+              <div class="stat-brutal-num">100%</div>
+              <div class="stat-brutal-label">Codigo abierto</div>
+            </div>
+            <div class="stat-brutal">
+              <div class="stat-brutal-num">GPL</div>
+              <div class="stat-brutal-label">Licenciamiento</div>
+            </div>
+            <div class="stat-brutal">
+              <div class="stat-brutal-num">0</div>
+              <div class="stat-brutal-label">Cajas negras</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" data-od-id="effects">
+      <div class="container">
+        <div class="section-header">
+            <p class="eyebrow">Efectos &amp; Animaciones</p>
+            <h2>Dystopian Layer Stack</h2>
+            <p>Capa de textura y distorsion para el modo brutalista-editorial. Noise, scanlines, gradientes y cursor con ciclo de color.</p>
+        </div>
+
+        <div class="comp-group">
+          <h3>Gradiente divisor</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: var(--space-4);">Horizontal, 3px. Plum accent-3 en el centro, blush accent-5 en los bordes. Reemplaza &lt;hr&gt; entre secciones del hero y la mision.</p>
+          <div style="height: 3px; background: linear-gradient(90deg, transparent, var(--accent-5) 20%, var(--accent-3) 50%, var(--accent-5) 80%, transparent); margin: var(--space-6) 0;"></div>
+        </div>
+
+        <div class="comp-group">
+          <h3>Cursor color-cycling</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: var(--space-4);">14px dot con <code style="font-family:var(--font-mono);font-size:13px;">mix-blend-mode: exclusion</code>. Cicla por los 5 stops del accent ramp cada 800ms. Crece a 32px en elementos interactivos. Lerp delay 0.08.</p>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--accent);"></span>
+            <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--accent-2);"></span>
+            <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--accent-3);"></span>
+            <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--accent-4);"></span>
+            <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--accent-5);"></span>
+            <span style="color:var(--meta);font-family:var(--font-mono);font-size:12px;margin-left:var(--space-2);">→ exclusion blend</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pagefoot">
+    <div class="container">
+      <p>Polyrics Labs &middot; Design System v1.0</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        tab.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

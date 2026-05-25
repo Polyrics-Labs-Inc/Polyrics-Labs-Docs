@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polyrics Labs · Tipografia</title>
+  <style>
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pd-ElmsSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18pf-ElmsSans-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ng-ElmsSans-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18no-ElmsSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p4-ElmsSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18nk-ElmsSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18np-ElmsSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p3-ElmsSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p8-ElmsSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18p9-ElmsSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mx-ElmsSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mz-ElmsSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n4-ElmsSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18n9-ElmsSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18mi-ElmsSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('./assets/fonts/mpid18ml-ElmsSans-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+    :root {
+      --bg: #fcfafa;
+      --surface: #ffffff;
+      --surface-warm: #f9f5f7;
+      --fg: #1b1520;
+      --fg-2: #3d3045;
+      --muted: #6e5e76;
+      --meta: #9b8ca3;
+      --border: #e8dfe5;
+      --border-soft: #f3ecf1;
+      --accent: #38355b;
+      --accent-on: #ffffff;
+      --accent-2: #6c4676;
+      --accent-3: #b55c96;
+      --accent-4: #ff87b7;
+      --accent-5: #ffc2d7;
+      --accent-soft: color-mix(in oklch, var(--accent-5) 35%, transparent);
+      --accent-hover: color-mix(in oklab, var(--accent), white 16%);
+      --accent-active: color-mix(in oklab, var(--accent), white 24%);
+      --success: #0a8a40;
+      --warn: #c07a08;
+      --danger: #d43030;
+      --font-display: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-body: "Elms Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+      --text-xs: 12px;
+      --text-sm: 14px;
+      --text-base: 16px;
+      --text-lg: 20px;
+      --text-xl: 24px;
+      --text-2xl: 32px;
+      --text-3xl: 48px;
+      --text-4xl: 64px;
+      --leading-body: 1.55;
+      --leading-tight: 1.1;
+      --tracking-display: -0.02em;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-20: 80px;
+      --section-y-desktop: 80px;
+      --section-y-tablet: 48px;
+      --section-y-phone: 32px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --elev-flat: none;
+      --elev-ring: 0 0 0 1px var(--border);
+      --elev-raised: 0 2px 12px rgba(56,53,91,0.07);
+      --focus-ring: 0 0 0 3px color-mix(in oklab, var(--accent), transparent 60%);
+      --motion-fast: 150ms;
+      --motion-base: 200ms;
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --container-max: 1200px;
+      --container-gutter-desktop: 24px;
+      --container-gutter-tablet: 16px;
+      --container-gutter-phone: 12px;
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); font-size: var(--text-base);
+      line-height: var(--leading-body); -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { text-wrap: balance; margin: 0; }
+    p { text-wrap: pretty; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--container-gutter-desktop);
+    }
+
+    .topnav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-block: 12px;
+    }
+    .topnav .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .topnav .nav-logo { width: 24px; height: 24px; }
+    .topnav .nav-name {
+      font-family: var(--font-display); font-size: 17px;
+      font-weight: 600; letter-spacing: -0.01em;
+    }
+    .topnav nav { display: flex; gap: var(--space-8); }
+    .topnav nav a {
+      font-size: 14px; color: var(--muted);
+      transition: color var(--motion-fast) var(--ease-standard);
+    }
+    .topnav nav a:hover, .topnav nav a.active { color: var(--accent); }
+    .topnav .back-link { font-family: var(--font-mono); font-size: 12px; color: var(--meta); }
+
+    .section { padding-block: var(--space-20); }
+    .rule { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+    .section-header { margin-bottom: var(--space-12); }
+    .section-header .eyebrow {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);
+    }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      letter-spacing: -0.015em;
+    }
+    .section-header p { color: var(--muted); margin-top: var(--space-2); max-width: 56ch; }
+
+    .type-row {
+      display: flex; align-items: baseline; gap: var(--space-8);
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .type-row .specimen {
+      font-family: var(--font-display);
+      white-space: nowrap;
+    }
+    .type-row .spec-label {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+      color: var(--meta); white-space: nowrap; min-width: 80px;
+    }
+    .type-row .spec-size {
+      font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+      min-width: 70px; white-space: nowrap;
+    }
+
+    .font-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: var(--space-8);
+    }
+    .font-card h3 {
+      font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em;
+      color: var(--accent); margin-bottom: var(--space-5);
+    }
+
+    .body-sample {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: var(--space-6);
+    }
+    .body-sample p {
+      font-family: var(--font-body); font-size: var(--text-base);
+      line-height: var(--leading-body); color: var(--fg);
+      max-width: 60ch;
+    }
+    .body-sample p + p { margin-top: var(--space-4); }
+
+    .pairing-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6);
+    }
+    @media (max-width: 768px) { .pairing-grid { grid-template-columns: 1fr; } }
+
+    .pairing-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: var(--space-8);
+    }
+    .pairing-card h4 {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--meta); margin-bottom: var(--space-5);
+    }
+
+    .pagefoot {
+      padding-block: var(--space-12); border-top: 1px solid var(--border);
+      color: var(--meta); font-size: var(--text-sm); text-align: center;
+    }
+
+    .mono-sample pre {
+      font-family: var(--font-mono); font-size: 13px;
+      color: var(--fg-2); line-height: 1.65;
+      margin: 0; overflow-x: auto;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="container topnav-inner">
+      <a class="nav-brand" href="index.html">
+          <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="128,28 215,78 215,178 128,228 41,178 41,78" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="128,52 195,92 195,164 128,204 61,164 61,92" stroke="currentColor" stroke-width="1" opacity="0.18" stroke-dasharray="4 6"/>
+  <line x1="128" y1="28" x2="128" y2="228" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+  <line x1="41" y1="128" x2="215" y2="128" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+  <line x1="51" y1="73" x2="205" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+  <line x1="205" y1="73" x2="51" y2="183" stroke="currentColor" stroke-width="0.4" opacity="0.07"/>
+  <g transform="rotate(0, 128, 128)"><polygon points="128,78 178,128 128,178 78,128" fill="currentColor" opacity="0.20"/></g>
+  <g transform="rotate(60, 128, 128)"><polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.15"/></g>
+  <g transform="rotate(-60, 128, 128)"><polygon points="128,88 168,128 128,168 88,128" fill="currentColor" opacity="0.12"/></g>
+  <circle cx="128" cy="128" r="7" fill="currentColor"/>
+  <circle cx="128" cy="28" r="4" fill="currentColor"/>
+  <circle cx="215" cy="78" r="4" fill="currentColor"/>
+  <circle cx="215" cy="178" r="4" fill="currentColor"/>
+  <circle cx="128" cy="228" r="4" fill="currentColor"/>
+  <circle cx="41" cy="178" r="4" fill="currentColor"/>
+  <circle cx="41" cy="78" r="4" fill="currentColor"/>
+</svg>
+        <span class="nav-name">Polyrics Labs</span>
+      </a>
+      <nav>
+        <a href="colors.html">Colores</a>
+        <a class="active" href="typography.html">Tipografia</a>
+        <a href="components.html">Componentes</a>
+      </nav>
+      <a class="back-link" href="index.html">&larr; Index</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="display">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Display</p>
+          <h2>Geometrica limpia</h2>
+          <p>Elms Sans — sans-serif geometrico con tracking negativo para headlines. Peso 600-700. Nunca usar Inter/Roboto como display.</p>
+        </div>
+
+        <div class="font-card" style="margin-bottom: var(--space-8);">
+          <h3>--font-display</h3>
+          <div class="type-row">
+            <span class="spec-label">4xl</span>
+            <span class="spec-size">64px</span>
+            <span class="specimen" style="font-size: var(--text-4xl); font-weight: 700; letter-spacing: var(--tracking-display); line-height: var(--leading-tight);">Software</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">3xl</span>
+            <span class="spec-size">48px</span>
+            <span class="specimen" style="font-size: var(--text-3xl); font-weight: 700; letter-spacing: var(--tracking-display); line-height: var(--leading-tight);">Open By Design</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">2xl</span>
+            <span class="spec-size">32px</span>
+            <span class="specimen" style="font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.015em; line-height: var(--leading-tight);">Artesania Digital</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">xl</span>
+            <span class="spec-size">24px</span>
+            <span class="specimen" style="font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.01em; line-height: 1.3;">Laboratorio de Software</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">lg</span>
+            <span class="spec-size">20px</span>
+            <span class="specimen" style="font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.005em; line-height: 1.35;">Custom Features &amp; Cloud Hosting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="body">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Cuerpo</p>
+          <h2>System sans funcional</h2>
+          <p>Elms Sans / system-ui. Lectura comoda en parrafos, alto contraste, interlineado generoso.</p>
+        </div>
+
+        <div class="font-card" style="margin-bottom: var(--space-8);">
+          <h3>--font-body &middot; 16px / 1.55</h3>
+          <div class="body-sample">
+            <p>Polyrics Labs nace de la necesidad de los que no se rinden, del deseo polifacetico de hacer algo por el mundo desde todos los frentes. No somos solo un laboratorio de Software — somos un estudio de artesania digital que cree que el codigo es una herramienta de lucha, libertad y cambio.</p>
+            <p style="color: var(--fg-2);">En Polyrics Labs, creemos que el Software debe tener vida. Nacemos de la idea de la union, reconociendo que todos tienen algo que aportar al mundo y que debe pertenecer a las comunidades que lo han construido antes que nosotros.</p>
+            <p style="font-size: var(--text-sm); color: var(--muted);">Texto secundario a 14px. Para descripciones, metadatos extendidos y contenido de soporte. Mantiene legibilidad sin competir con el flujo principal.</p>
+          </div>
+        </div>
+
+        <div class="font-card">
+          <h3>--font-body &middot; variantes de peso</h3>
+          <div class="type-row">
+            <span class="spec-label">Regular</span>
+            <span class="spec-size">400</span>
+            <span style="font-weight: 400; font-size: var(--text-lg);">El codigo es una herramienta de lucha</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">Medium</span>
+            <span class="spec-size">500</span>
+            <span style="font-weight: 500; font-size: var(--text-lg);">El codigo es una herramienta de lucha</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">Semi</span>
+            <span class="spec-size">600</span>
+            <span style="font-weight: 600; font-size: var(--text-lg);">El codigo es una herramienta de lucha</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="mono">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Mono</p>
+          <h2>JetBrains Mono</h2>
+          <p>Para codigo, IDs, timestamps, numerics tabulares. La tipografia del desarrollador — Universal Readability en su forma mas pura.</p>
+        </div>
+
+        <div class="font-card" style="margin-bottom: var(--space-8);">
+          <h3>--font-mono</h3>
+          <div class="mono-sample">
+            <pre style="color: var(--accent); font-size: 11px; letter-spacing: 0.08em; margin-bottom: 12px;">EYEBROW &middot; MONO UPPERCASE &middot; 12PX</pre>
+            <pre>function buildTools(community: Community): Promise&lt;Tool[]&gt; {
+  const lab = new PolyricsLab({
+    license: "GPL-3.0",
+    openness: "by-design",
+    philosophy: "utility-first"
+  });
+
+  return lab.craft({
+    audience: community.members,
+    budget: community.trust,
+    deadline: "yesterday"
+  });
+}</pre>
+          </div>
+        </div>
+
+        <div class="font-card">
+          <h3>--font-mono &middot; tabular-nums</h3>
+          <div class="type-row" style="font-family: var(--font-mono); font-size: var(--text-2xl); border: 0;">
+            <span style="font-variant-numeric: tabular-nums;">$12,480</span>
+            <span style="font-variant-numeric: tabular-nums; color: var(--muted);">$12,480</span>
+            <span style="font-variant-numeric: tabular-nums; color: var(--success);">+14.2%</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--meta); margin-top: var(--space-2);">Las cifras usan font-variant-numeric: tabular-nums para alineacion perfecta en tablas.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="pairings">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Combinaciones</p>
+          <h2>Display + Cuerpo + Mono</h2>
+          <p>Tres familias, tres roles. La display nunca se usa para cuerpo; el cuerpo nunca se usa como display. Mono es solo para datos.</p>
+        </div>
+
+        <div class="pairing-grid">
+          <div class="pairing-card">
+            <h4>Heading + Body</h4>
+            <div style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.01em; margin-bottom: var(--space-3);">Open By Design</div>
+            <p style="font-family: var(--font-body); font-size: var(--text-base); color: var(--muted); line-height: var(--leading-body);">Todo lo que creamos nace publico y bajo licencias GPL. No solo compartimos el resultado, compartimos el proceso. Si es Polyrics, es de todos para todos.</p>
+          </div>
+          <div class="pairing-card">
+            <h4>Eyebrow + Heading</h4>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);">Utility First</div>
+            <div style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.01em;">Eliminamos la decoracion innecesaria</div>
+          </div>
+          <div class="pairing-card">
+            <h4>Mono + Body</h4>
+            <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--accent); margin-bottom: var(--space-3);">v1.0.0 &middot; 2026-05-23</div>
+            <p style="font-family: var(--font-body); font-size: var(--text-sm); color: var(--muted); line-height: var(--leading-body);">Release inicial del design system de Polyrics Labs. Tokens, componentes y documentacion completa.</p>
+          </div>
+          <div class="pairing-card">
+            <h4>Stat + Label</h4>
+            <div style="font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 0.95; color: var(--accent);">3,184</div>
+            <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-2);">REPOSITORIOS ACTIVOS &middot; 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section" id="scale">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Escala completa</p>
+          <h2>8 pasos &middot; 12px &rarr; 64px</h2>
+        </div>
+        <div class="font-card">
+          <div class="type-row">
+            <span class="spec-label">xs</span><span class="spec-size">12px</span>
+            <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--meta);">LABEL &middot; TIMESTAMP &middot; LEGAL</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">sm</span><span class="spec-size">14px</span>
+            <span style="font-family: var(--font-body); font-size: var(--text-sm); color: var(--muted);">Cuerpo secundario &middot; descripciones &middot; ayuda</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">base</span><span class="spec-size">16px</span>
+            <span style="font-family: var(--font-body); font-size: var(--text-base);">Cuerpo principal &middot; parrafos &middot; texto de lectura</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">lg</span><span class="spec-size">20px</span>
+            <span style="font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.005em;">Lead text &middot; subtitulos &middot; h3</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">xl</span><span class="spec-size">24px</span>
+            <span style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.01em;">h3 &middot; card headings</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">2xl</span><span class="spec-size">32px</span>
+            <span style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.015em;">h2 &middot; section titles</span>
+          </div>
+          <div class="type-row">
+            <span class="spec-label">3xl</span><span class="spec-size">48px</span>
+            <span style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700; letter-spacing: var(--tracking-display); line-height: var(--leading-tight);">h1 &middot; hero headlines</span>
+          </div>
+          <div class="type-row" style="border: 0;">
+            <span class="spec-label">4xl</span><span class="spec-size">64px</span>
+            <span style="font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; letter-spacing: var(--tracking-display); line-height: var(--leading-tight);">Mega display</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot">
+    <div class="container">
+      <p>Polyrics Labs &middot; Design System v1.0</p>
+    </div>
+  </footer>
+</body>
+</html>
